@@ -1,0 +1,17 @@
+.header
+	.logo
+		= link_to root_path do
+			| thirdplace
+	.menu
+		li class=('active' if current_page? root_path)
+			= link_to root_path do
+				span.octicon.octicon-organization
+		li
+			= link_to posts_path do
+				span.octicon.octicon-rss
+		li
+			= link_to root_path do
+				span.octicon.octicon-comment-discussion
+		li class=('active' if current_page? edit_communities_path)
+			= link_to edit_communities_path do
+				span.octicon.octicon-gear

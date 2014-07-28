@@ -1,0 +1,2 @@
+class Hometown < Community
+end

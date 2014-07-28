@@ -1,0 +1,30 @@
+- content_for :stylesheet do
+	= stylesheet_link_tag 'plugins/selectize'
+
+- content_for :javascript do
+	= javascript_include_tag 'plugins/selectize.min', 'users/communities'
+
+.container
+	= render 'layouts/header'
+	.subheader
+		li
+			= link_to edit_communities_path do
+				| Communities
+		li
+			= link_to edit_user_registration_path do
+				| Account
+	= simple_form_for(current_user, as: :user, url: registration_path(:user), html: { method: :put }) do |f|
+		= f.error_notification
+		.form-inputs
+			= f.input :name
+			= f.association :genders, label: "Gender"
+			= f.association :orientations, label: "Orientation"
+			= f.association :religions, label: "Religion"
+			= f.association :employers, label: "Employer(s)"
+			= f.association :schools, label: "School(s)"
+			= f.association :hometowns, label: "Hometown(s)", collection: City.all, selected: current_user.hometown_ids
+			= f.association :locations, label: "Current City", collection: City.all, selected: current_user.location_ids
+		.form-actions
+			= f.button :button do
+				| Update
+				span.octicon.octicon-chevron-right

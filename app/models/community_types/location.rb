@@ -1,0 +1,2 @@
+class Location < Community
+end

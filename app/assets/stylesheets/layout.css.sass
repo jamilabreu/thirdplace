@@ -1,0 +1,201 @@
+@import base
+
+body
+	background: #EEE
+	background: url("https://d13yacurqjgara.cloudfront.net/assets/noise-f1-99be850299aaf3f1e91225fa7a97228c.gif")
+	color: $black
+	font-family: $sans-serif
+	-webkit-font-smoothing: antialiased
+
+// FORMS
+form
+	label
+		display: block
+		text-align: left
+	input
+		@include box-sizing(border-box)
+		outline: none
+		padding: $rhythm $rhythm $rhythm - 1
+		width: 100%
+	span.error
+		color: $red
+		display: block
+		line-height: $rhythm * 2
+		padding-left: 2px
+		text-transform: lowercase
+	button[type="submit"]
+		@include button($green, 0px)
+		border: none
+		margin-top: $rhythm * 1.5
+		outline: none
+		text-transform: lowercase
+		.octicon
+			margin-left: 8px
+
+form.new_user
+	.form-inputs
+		max-width: 360px
+		margin: 0 auto
+	.form-actions
+		text-align: center
+
+form.new_user[action="/users/sign_in"]
+	margin-top: $rhythm * 3
+	padding: $rhythm * 3
+	.input
+		label
+			color: #999
+			font-size: 14px
+			font-weight: 600
+			text-transform: uppercase
+		&:not(:last-child)
+			margin-bottom: $rhythm
+
+form.edit_user
+	.form-actions
+		text-align: center
+
+.form-links
+	margin-top: $rhythm * 2
+	text-align: center
+	a
+		color: $gray
+	a:not(:last-child)
+		&:after
+			content: "\00A0\00A0\00B7\00A0\00A0"
+
+// GRID
+.container
+	@include outer-container
+
+.welcome-login
+	text-align: right
+	a
+		color: #999
+		font-weight: 600
+		line-height: $rhythm * 3
+		.octicon
+			margin-left: 5px
+
+.section
+	border-bottom: 1px solid #DDD
+	border-top: 1px solid #DDD
+	padding: $rhythm * 3 0 $rhythm * 4
+
+.logo
+	color: #333
+	color: $blue
+	font-family: $brandon-grotesque
+	font-size: 60px
+	font-weight: 500
+	line-height: $rhythm * 4
+	text-align: center
+
+.tagline
+	color: $gray
+	color: tint($blue, 20%)
+	font-size: 22px
+	margin: 0 auto
+	max-width: 400px
+	padding: $rhythm 0 $rhythm * 3
+	text-align: center
+
+.steps
+	margin-bottom: $rhythm * 3
+	padding: $rhythm * 3 0
+
+.welcome-step
+	@include clearfix
+	&:not(:last-child)
+		padding-bottom: $rhythm * 3
+	.octicon
+		float: left
+		font-size: 64px
+		text-align: center
+		width: 64px
+
+.welcome-step-main
+	font-weight: 600
+	margin-left: 64px + $rhythm
+	div
+		color: $gray
+		font-weight: 500
+
+// HEADER
+.header
+	padding: $rhythm * 1.5 0 0
+	text-align: center
+	text-shadow: 0 1px 0 white
+
+.menu
+	padding: $rhythm * 1.5 0 $rhythm * 2
+	li
+		display: inline-block
+		&:not(:last-child)
+			margin-right: 32px
+		a
+			color: #999
+			font-size: 32px
+			span
+				font-size: 32px
+				margin-right: 6px
+		&.active
+			a
+				color: $blue
+
+.subheader
+	padding-bottom: $rhythm
+	text-align: center
+	li
+		display: inline-block
+		&:not(:last-child)
+			margin-right: 16px
+
+// USER
+.user
+	background: white
+	border-radius: 3px
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.05)
+	margin: 0 auto 16px
+	padding: 0 8px 8px
+	width: 216px
+
+.user-image
+	height: 200px
+	padding-top: 8px
+	width: 200px
+	img
+		height: 100%
+		width: 100%
+
+.user-name
+	font-size: 22px
+	font-weight: 300
+	line-height: $rhythm * 3
+	padding: 0 4px
+
+.user-communities
+	border-top: 1px solid whiteSmoke
+	margin: 0 0 16px
+	padding: 16px 4px 0
+	a
+		color: #777
+		display: block
+		font-size: 15px
+		line-height: $rhythm * 1.33
+		span
+			margin-right: 5px
+
+.user-actions
+	a
+		background: whiteSmoke
+		border-radius: 3px
+		color: #BBB
+		display: inline-block
+		line-height: $rhythm * 2
+		text-align: center
+		width: 96px
+		&:first-child
+			background: #23ADE8
+			color: shade(#23ADE8, 40%)
+			margin-right: 8px

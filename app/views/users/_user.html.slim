@@ -1,0 +1,15 @@
+.user
+	.user-image
+		= image_tag "http://graph.facebook.com/3017#{rand(1..100)}/picture?type=large"
+	.user-name
+		= user.name.split(" ").first
+	.user-communities
+		- user.communities_shared_with(current_user).each do |community|
+			= link_to root_path do
+				span.octicon.octicon-globe
+				= community.name
+	.user-actions
+		= link_to root_path do
+			span.octicon.octicon-check
+		= link_to root_path do
+			span.octicon.octicon-x
